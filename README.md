@@ -8,11 +8,12 @@ FISI20 es un proyecto donde los estudiantes de la facultad de Ingenieria de Sist
 ## Aplicaciones
 
 ## Modelos
-1. Comision
-2. Curso
-3. Profesor
-4. Ejercicio
-5. Solucion
+1. Ciclo
+2. Profesor
+3. Curso
+4. Tema
+5. Ejercicio
+6. Solucion
 
 ## Mejoras futuras
 Implementarlo para distintas facultades de la universidad
