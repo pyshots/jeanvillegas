@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    CICLOS
+{% endblock title %}
+
+{% block content %}
+
+    {% for ciclo in ciclos %}
+        <h2>{{ ciclo.nombre }}</h2>
+
+        {% for curso in ciclo.cursos.all %}
+            <h3>{{ curso.nombre }}</h3>
+            <p>Profesor: {{ curso.profesor }}</p>
+            <ul>
+
+            {% for tema in curso.temas.all %}
+                <li>{{ tema.nombre }}</li>
+                <ul>
+                    
+                {% for ejercicio in tema.ejercicios.all %}
+                    <li>{{ ejercicio }}</li>
+                    <li>{{ ejercicio.solucion }}</li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endfor %}
+
+{% endblock content %}
