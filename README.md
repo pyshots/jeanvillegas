@@ -10,7 +10,7 @@ FISI 11 es una web donde los estudiantes de la facultad de Ingenieria de Sistema
 
 ## Uso
 1. Descargue el proyecto de Github
-2. Abra el proyecto en Visual Studio Code
+2. Abra el proyecto en Visual Studio Code, asegúrese de instalar y activar su entorno virtual (python -m venv .venv)
 3. En su terminal, ubíquese en project, ejecute python manage.py runserver para iniciar la web
 4. En la web, el icono de la parte superior izquierda, lo lleva al inicio
 5. Vaya a Ciclos, haga click en "Ciclo 3" o en el icono del circulo amarillo
