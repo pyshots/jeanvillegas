@@ -9,13 +9,19 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         
         <div class="container">
-            <a href="{% url 'Clase:ejerciciocategoria_create' %}">Sube tus ejercicios</a>
-            <a href="{% url '...' %}">Sube tus soluciones</a>
-            <a href="{% url '...' %}">Añade nuevos temas</a>
+            <div class="btn-group d-flex" role="group">
+                <a href="{% url 'Clase:ejerciciocategoria_create' %}" class="btn btn-primary flex-fill mb-3">Sube tus ejercicios</a>
+                <a href="{% url 'Clase:solucion_create' %}" class="btn btn-primary flex-fill mb-3">Sube tus soluciones</a>
+                <a href="{% url 'Clase:tema_create' %}" class="btn btn-primary flex-fill mb-3">Añade nuevos temas</a>
+            </div>
             {% for ciclo in ciclos %}
                 <div class="row">
-                    <div class="col-md-12">
-                        <h2>{{ ciclo.nombre }}</h2>
+                    <div class="col-md-12 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h2 class="card-title">{{ ciclo.nombre }}</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% for curso in ciclo.cursos.all %}
@@ -23,8 +29,9 @@
                         <div class="col-md-12">
                             <h3>{{ curso.nombre }}</h3>
                             <p>Profesor: {{ curso.profesor }}</p>
+                            <h4>Temas</h4>
                             <ul>
-                                {% for tema in curso.temas.all %}
+                                {% for tema in curso.temas.all|dictsort:"nombre" %}
                                     <li>{{ tema.nombre }}</li>
                                     <ul>
                                         {% for ejercicio in tema.ejercicios.all %}

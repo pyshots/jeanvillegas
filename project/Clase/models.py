@@ -32,11 +32,11 @@ class EjercicioCategoria(models.Model):
     tema = models.ForeignKey(Tema, on_delete=models.CASCADE, related_name='ejercicios')
     
     def __str__(self):
-        return f"Ejercicio numero {self.id} ({self.tema.nombre})"
+        return f"Ejercicio numero {self.id}"
 
 class Solucion(models.Model):
     solucion = models.TextField(blank=True, null=True)
     ejercicio = models.OneToOneField(EjercicioCategoria, on_delete=models.CASCADE, related_name='solucion')
     
     def __str__(self):
-        return f"Solución del ejercicio número {self.ejercicio.id} ({self.ejercicio.tema.nombre})"
+        return f"Solución del ejercicio número {self.ejercicio.id}"

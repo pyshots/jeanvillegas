@@ -15,3 +15,21 @@ class EjercicioCategoriaForm(forms.ModelForm):
             "enunciado": forms.Textarea(attrs={"class": "form-control", "placeholder": "Enunciado"}),
             "tema": forms.Select(attrs={"class": "form-control"}),
         }
+
+class TemaForm(forms.ModelForm):
+    class Meta:
+        model = models.Tema
+        fields = "__all__"
+        widgets = {
+            "nombre": forms.TextInput(attrs={"class": "form-control", "placeholder": "Nombre"}),
+            "curso": forms.Select(attrs={"class": "form-control"}),
+        }
+
+class SolucionForm(forms.ModelForm):
+    class Meta:
+        model = models.Solucion
+        fields = "__all__"
+        widgets = {
+            "solucion": forms.Textarea(attrs={"class": "form-control", "placeholder": "Solución"}),
+            "ejercicio": forms.Select(attrs={"class": "form-control"}),
+        }

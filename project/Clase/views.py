@@ -16,3 +16,23 @@ def ejerciciocategoria_create(request):
     else: #request.method == 'GET':
         form = forms.EjercicioCategoriaForm()
     return render(request, 'Clase/ejerciciocategoria_create.html', context={'form': form})
+
+def tema_create(request):
+    if request.method == 'POST':
+        form = forms.TemaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Clase:home')
+    else: #request.method == 'GET':
+        form = forms.TemaForm()
+    return render(request, 'Clase/tema_create.html', context={'form': form})
+
+def solucion_create(request):
+    if request.method == 'POST':
+        form = forms.SolucionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Clase:home')
+    else: #request.method == 'GET':
+        form = forms.SolucionForm()
+    return render(request, 'Clase/solucion_create.html', context={'form': form})
