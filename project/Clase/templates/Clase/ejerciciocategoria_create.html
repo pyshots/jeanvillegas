@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Crear ejercicios
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-8">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <h1 class="card-title mb-1">
+                        Categoría de ejercicios: creación
+                    </h1>
+                </div>
+            </div>
+            <div class="mt-3 text-center"> <!-- Espacio entre la tarjeta y el contenido, centrado -->
+                
+                <!-- Contenido -->
+                {#<p>Contenido</p>#}
+                
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <button type="submit" class="btn btn-secondary">Guardar</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -9,6 +9,9 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         
         <div class="container">
+            <a href="{% url 'Clase:ejerciciocategoria_create' %}">Sube tus ejercicios</a>
+            <a href="{% url '...' %}">Sube tus soluciones</a>
+            <a href="{% url '...' %}">Añade nuevos temas</a>
             {% for ciclo in ciclos %}
                 <div class="row">
                     <div class="col-md-12">
