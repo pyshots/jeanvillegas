@@ -5,27 +5,36 @@
 {% endblock title %}
 
 {% block content %}
-
-    {% for ciclo in ciclos %}
-        <h2>{{ ciclo.nombre }}</h2>
-
-        {% for curso in ciclo.cursos.all %}
-            <h3>{{ curso.nombre }}</h3>
-            <p>Profesor: {{ curso.profesor }}</p>
-            <ul>
-
-            {% for tema in curso.temas.all %}
-                <li>{{ tema.nombre }}</li>
-                <ul>
-                    
-                {% for ejercicio in tema.ejercicios.all %}
-                    <li>{{ ejercicio }}</li>
-                    <li>{{ ejercicio.solucion }}</li>
+    {% include 'core/components/masthead.html' with titulo="Ciclo 3" texto="2do fisiaño" boton="Go"%}
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        
+        <div class="container">
+            {% for ciclo in ciclos %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>{{ ciclo.nombre }}</h2>
+                    </div>
+                </div>
+                {% for curso in ciclo.cursos.all %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>{{ curso.nombre }}</h3>
+                            <p>Profesor: {{ curso.profesor }}</p>
+                            <ul>
+                                {% for tema in curso.temas.all %}
+                                    <li>{{ tema.nombre }}</li>
+                                    <ul>
+                                        {% for ejercicio in tema.ejercicios.all %}
+                                            <li>{{ ejercicio }}</li>
+                                            <li>{{ ejercicio.solucion }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 {% endfor %}
-                </ul>
             {% endfor %}
-            </ul>
-        {% endfor %}
-    {% endfor %}
-
+        </div>
+    </div>
 {% endblock content %}
