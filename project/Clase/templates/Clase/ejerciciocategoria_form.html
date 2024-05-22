@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Crear ejercicios
+    Ejercicios: crear categoría de ejercicios
 {% endblock title %}
 
 {% block content %}
@@ -31,5 +31,8 @@
             </div>
         </div>
     </div>
+</div>
+<div class="d-flex justify-content-center mt-4">
+    <a href="{% url 'Clase:home' %}" class="btn btn-secondary btn-lg">Volver a Clase</a>
 </div>
 {% endblock content %}

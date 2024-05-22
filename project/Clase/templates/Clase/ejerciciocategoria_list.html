@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Ejercicios: Lista de categoría de ejercicios
+{% endblock title %}
+
+{% block content %}
+    {% include 'core/components/masthead.html' with titulo="Ciclo 3" texto="2do fisiaño" boton="Go" %}
+    <div class="container py-lg-4">
+        <form action="{% url 'Clase:ejerciciocategoria_list' %}" method="get" class="mb-4">
+            <input type="text" name="consulta" placeholder="Buscar..." class="form-control">
+        </form>
+        {% if cursos %}
+            {% for curso in cursos %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ curso.nombre }}</h3>
+                        <p>Profesor: {{ curso.profesor }}</p>
+                        <h4>Temas</h4>
+                        <ul>
+                            {% for tema in curso.temas.all %}
+                                <li>
+                                    {{ tema.nombre }}
+                                    <ul>
+                                        {% for ejercicio in tema.ejercicios.all %}
+                                            <li>
+                                                <strong>Ejercicio:</strong> {{ ejercicio.enunciado|truncatechars:100 }}
+                                                <a href="{% url 'Clase:ejerciciocategoria_detail' ejercicio.id %}">Detalle</a>
+                                                <a href="{% url 'Clase:ejerciciocategoria_update' ejercicio.id %}">Cambiar</a>
+                                                <a href="{% url 'Clase:ejerciciocategoria_delete' ejercicio.id %}">Borrar</a>
+                                            </li>
+                                            <li><strong>Solución:</strong> {{ ejercicio.solucion.solucion|truncatechars:100 }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No se encontraron cursos.</p>
+        {% endif %}
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <a href="{% url 'Clase:home' %}" class="btn btn-secondary btn-lg">Volver a Clase</a>
+    </div>
+{% endblock content %}
