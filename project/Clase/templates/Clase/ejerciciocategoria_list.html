@@ -8,7 +8,7 @@
     {% include 'core/components/masthead.html' with titulo="Ciclo 3" texto="2do fisiaño" boton="Go" %}
     <div class="container py-lg-4">
         <form action="{% url 'Clase:ejerciciocategoria_list' %}" method="get" class="mb-4">
-            <input type="text" name="consulta" placeholder="Buscar..." class="form-control">
+            <input type="text" name="consulta" placeholder="Buscar por curso..." class="form-control" value="{{ consulta }}">
         </form>
         {% if cursos %}
             {% for curso in cursos %}

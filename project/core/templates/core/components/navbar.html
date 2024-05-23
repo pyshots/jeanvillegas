@@ -10,10 +10,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#services">Ciclos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">Cursos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">About</a></li>
+                {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="#about">Tema</a></li>
-                <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
+                <li class="nav-item">
+                    <form action="{% url 'core:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-dark">Logout</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:register' %}">Registrarse</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
