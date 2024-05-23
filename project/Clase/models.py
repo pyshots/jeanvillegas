@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class Ciclo(models.Model):
     nombre = models.CharField(max_length=100, unique=True, blank=True, null=True)
@@ -30,13 +31,17 @@ class Tema(models.Model):
 class EjercicioCategoria(models.Model):
     enunciado = models.TextField(blank=True, null=True)
     tema = models.ForeignKey(Tema, on_delete=models.CASCADE, related_name='ejercicios')
+    fecha_creacion = models.DateField(default=datetime.now, blank=True, null=True, editable=False)
+    imagen = models.ImageField(upload_to='ejercicios/', blank=True, null=True)
     
     def __str__(self):
         return f"Ejercicio numero {self.id}"
 
 class Solucion(models.Model):
     solucion = models.TextField(blank=True, null=True)
-    ejercicio = models.OneToOneField(EjercicioCategoria, on_delete=models.CASCADE, related_name='solucion')
+    ejercicio_id = models.ForeignKey(EjercicioCategoria, on_delete=models.CASCADE, related_name='soluciones')
+    fecha_creacion = models.DateField(default=datetime.now, blank=True, null=True, editable=False)
+    imagen = models.ImageField(upload_to='soluciones/', blank=True, null=True)
     
     def __str__(self):
-        return f"Solución del ejercicio número {self.ejercicio.id}"
+        return f"Solución del ejercicio número {self.ejercicio_id.id}"
