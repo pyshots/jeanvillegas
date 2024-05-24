@@ -15,7 +15,9 @@
                 <li>
                     <strong>Tema:</strong> {{ ejercicio.tema.nombre }}<br>
                     <strong>Enunciado:</strong> {{ ejercicio.enunciado }}<br>
-                    <strong>Solución:</strong> {{ ejercicio.solucion.solucion }}
+                    {% if ejercicio.imagen %}
+                        <img src="{{ ejercicio.imagen.url }}" alt="Imagen de ejercicio">
+                    {% endif %}
                 </li>
             </ul>
         {% else %}

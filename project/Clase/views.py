@@ -3,6 +3,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from django.urls import reverse_lazy
 from . import models, forms
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 
 def home(request):
     return render(request, 'Clase/index.html')
@@ -99,3 +100,48 @@ def solucion_create(request):
     else:  # request.method == 'GET':
         form = forms.SolucionForm()
     return render(request, 'Clase/solucion_create.html', context={'form': form})
+
+#**************************************************************
+
+class SolucionCreate(LoginRequiredMixin, CreateView):
+    model = models.Solucion
+    form_class = forms.SolucionForm
+    success_url = reverse_lazy('Clase:home')
+
+    def form_valid(self, form):
+        form.instance.ejercicio_id = models.EjercicioCategoria.objects.get(pk=self.request.POST.get('ejercicio_id'))  # Asigna el ejercicio seleccionado en el formulario
+        return super().form_valid(form)
+
+class SolucionUpdate(LoginRequiredMixin, UpdateView):
+    model = models.Solucion
+    form_class = forms.SolucionForm
+    success_url = reverse_lazy('Clase:solucion_list')
+
+class SolucionDelete(LoginRequiredMixin, DeleteView):
+    model = models.Solucion
+    success_url = reverse_lazy('Clase:solucion_list')
+
+class SolucionList(LoginRequiredMixin, ListView):
+    model = models.Solucion
+    context_object_name = 'soluciones'
+    template_name = 'Clase/solucion_list.html'
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        consulta = self.request.GET.get("consulta")
+        if consulta:
+            queryset = queryset.filter(
+                Q(solucion__icontains=consulta) | 
+                Q(ejercicio_id__tema__curso__nombre__icontains=consulta)
+            )
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['consulta'] = self.request.GET.get("consulta", "")
+        return context
+
+class SolucionDetail(LoginRequiredMixin, DetailView):
+    model = models.Solucion
+    context_object_name = 'solucion'
+    template_name = 'Clase/solucion_detail.html'
