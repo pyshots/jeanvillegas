@@ -25,6 +25,9 @@
                                         {% for ejercicio in tema.ejercicios.all %}
                                             <li>
                                                 <strong>Ejercicio:</strong> {{ ejercicio.enunciado|truncatechars:100 }}
+                                                {% if ejercicio.imagen %}
+                                                    <img src="{{ ejercicio.imagen.url }}" alt="Imagen de ejercicio">
+                                                {% endif %}
                                                 <a href="{% url 'Clase:ejerciciocategoria_detail' ejercicio.id %}">Detalle</a>
                                                 <a href="{% url 'Clase:ejerciciocategoria_update' ejercicio.id %}">Cambiar</a>
                                                 <a href="{% url 'Clase:ejerciciocategoria_delete' ejercicio.id %}">Borrar</a>

@@ -9,15 +9,23 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         
         <div class="container">
-            <div class="btn-group d-flex" role="group">
+            <!-- Sección Ejercicios -->
+            <div class="btn-group d-flex flex-column mb-4" role="group">
+                <h3>Ejercicios</h3>
                 <a href="{% url 'Clase:ejerciciocategoria_create' %}" class="btn btn-primary flex-fill mb-3">Sube tus ejercicios</a>
                 <a href="{% url 'Clase:ejerciciocategoria_list' %}" class="btn btn-primary flex-fill mb-3">Listar ejercicios</a>
-                <a href="{% url 'Clase:solucion_create' %}" class="btn btn-primary flex-fill mb-3">Sube tus soluciones</a>
-                <a href="{% url 'Clase:tema_create' %}" class="btn btn-primary flex-fill mb-3">Añade nuevos temas</a>
             </div>
+            <!-- Sección Soluciones -->
+            <div class="btn-group d-flex flex-column mb-4" role="group">
+                <h3>Soluciones</h3>
+                <a href="{% url 'Clase:solucion_create' %}" class="btn btn-primary flex-fill mb-3">Sube tus soluciones</a>
+                <a href="{% url 'Clase:solucion_list' %}" class="btn btn-primary flex-fill mb-3">Listar soluciones</a>
+            </div>
+            <!-- Botón Volver a Inicio -->
             <div class="d-flex justify-content-center mt-4">
                 <a href="{% url 'core:home' %}" class="btn btn-secondary btn-lg">Volver a inicio</a>
             </div>
+        </div>
             {% for ciclo in ciclos %}
                 <div class="row">
                     <div class="col-md-12 mb-3">

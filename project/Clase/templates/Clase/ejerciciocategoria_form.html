@@ -20,11 +20,23 @@
                 <!-- Contenido -->
                 {#<p>Contenido</p>#}
                 
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <table>
                         {{ form.as_table }}
                     </table>
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <strong>Error:</strong>
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
                     <button type="submit" class="btn btn-secondary">Guardar</button>
                 </form>
                 
