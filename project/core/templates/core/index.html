@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}
     FISI 11
@@ -47,7 +48,7 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Cursos</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">Encuentra el tuyo.</h3>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -57,11 +58,11 @@
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                            <img class="img-fluid" src="{% static 'core/assets/img/portfolio/CProgramacion.webp' %}" alt="..." />
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Threads</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                            <div class="portfolio-caption-heading">Programación</div>
+                            <div class="portfolio-caption-subheading text-muted">Computadoras</div>
                         </div>
                     </div>
                 </div>
@@ -72,11 +73,11 @@
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
+                            <img class="img-fluid" src="{% static 'core/assets/img/portfolio/edos.jpg' %}" alt="..." />
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Explore</div>
-                            <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                            <div class="portfolio-caption-heading">Ecuaciones diferenciales</div>
+                            <div class="portfolio-caption-subheading text-muted">Y series</div>
                         </div>
                     </div>
                 </div>
@@ -87,11 +88,11 @@
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
+                            <img class="img-fluid" src="{% static 'core/assets/img/portfolio/electro.webp' %}" alt="..." />
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Finish</div>
-                            <div class="portfolio-caption-subheading text-muted">Identity</div>
+                            <div class="portfolio-caption-heading">Electromagnetismo</div>
+                            <div class="portfolio-caption-subheading text-muted">Y optica</div>
                         </div>
                     </div>
                 </div>
@@ -102,15 +103,16 @@
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
+                            <img class="img-fluid" src="{% static 'core/assets/img/portfolio/system.jpg' %}" alt="..." />
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Lines</div>
-                            <div class="portfolio-caption-subheading text-muted">Branding</div>
+                            <div class="portfolio-caption-heading">Fundamentos</div>
+                            <div class="portfolio-caption-subheading text-muted">De Sistemas</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    {% comment  %}
                     <!-- Portfolio item 5-->
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
@@ -139,10 +141,12 @@
                             <div class="portfolio-caption-subheading text-muted">Photography</div>
                         </div>
                     </div>
+                    {% endcomment %}
                 </div>
             </div>
         </div>
     </section>
+    {% comment  %}
     <!-- About-->
     <section class="page-section" id="about">
         <div class="container">
@@ -268,12 +272,13 @@
             </div>
         </div>
     </div>
+    {% endcomment %}
     <!-- Contact-->
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Contacto</h2>
+                <h3 class="section-subheading text-muted">Siéntete libre de dejar tus sugerencias.</h3>
             </div>
             <!-- * * * * * * * * * * * * * * *-->
             <!-- * * SB Forms Contact Form * *-->
@@ -287,25 +292,25 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
-                            <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                            <input class="form-control" id="name" type="text" placeholder="Tu nombre *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
                         <div class="form-group">
                             <!-- Email address input-->
-                            <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                            <input class="form-control" id="email" type="email" placeholder="Tu Email *" data-sb-validations="required,email" />
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Phone number input-->
-                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                            <input class="form-control" id="phone" type="tel" placeholder="Tu celular *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <!-- Message input-->
-                            <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                            <textarea class="form-control" id="message" placeholder="Tu mensaje *" data-sb-validations="required"></textarea>
                             <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                         </div>
                     </div>
