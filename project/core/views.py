@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .forms import CustomAuthenticationForm, CustomUserCreationForm
 from django.http import HttpRequest, HttpResponse
 
-@login_required
+#@login_required
 def home(request):
     return render(request, 'core/index.html')
 
