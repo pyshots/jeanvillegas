@@ -1,7 +1,8 @@
 # Proyecto Coderhouse
 - Comisión: 54135
 - Alumno: Jean Piero Villegas López
-- Video: https://drive.google.com/file/d/1O9McLcz41YvCrOJxCWaqxPIJ70LIrP7I/view?usp=sharing 
+- Video 1: https://drive.google.com/file/d/1O9McLcz41YvCrOJxCWaqxPIJ70LIrP7I/view?usp=sharing
+- Video 1.1: https://drive.google.com/file/d/1dEwpZJ9dZtJYtjbbvvvHOQQatB-w8Zfl/view?usp=sharing
 
 ## Acerca del proyecto
 FISI 11 es una web donde los estudiantes de la facultad de Ingenieria de Sistemas e Informática de la Universidad Nacional Mayor de San Marcos (Lima, Perú) encuentran ejercicios útiles para sus pc's y exámenes
@@ -36,8 +37,8 @@ FISI 11 es una web donde los estudiantes de la facultad de Ingenieria de Sistema
 3. Otros
 
 ## Mejoras futuras
-Alimentar la BD
-Adecuar el front end de los html
+- Alimentar la BD
+- Adecuar el front end de los html
 
 ## Problemas conocidos
 La imagen de fondo de la web es única, requiere que cambie para cada url
